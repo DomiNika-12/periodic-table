@@ -20,7 +20,7 @@ export interface Element {
   yearDiscovered: number
 }
 
-function parseElements(): Element[] {
+export function parseElements(): Element[] {
   return data.Table.Row.map(y => {
     const x = y.Cell
     return {
@@ -60,3 +60,17 @@ export function fetchElements(): (Element | null)[][] {
   return array;
 }
 
+export function fetchElements1(): (Element | null)[][] {
+  const array: (Element | null)[][] = []
+  const allElements = parseElements();
+  let elementIndex = 0;
+  let currentRowIndex = 0;
+  for (let row = 0; row < 7; row++) {
+    for (let col = 0; col < 18; col++) {
+      let element = allElements[elementIndex++];
+      const currentRow = array[currentRowIndex] ?? [];
+      currentRow.push(element);
+    }
+  }
+  return array;
+}

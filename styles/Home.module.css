@@ -2,19 +2,47 @@
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(11, 1fr);
+  padding: 5%;
 }
 
 .elementContainer{
-  outline: 1px solid; /* use instead of border */
+  /* outline: 1px solid; 
   margin-top: 1px;
-  margin-left: 1px;
-  padding: 10%;
+  margin-left: 1px; */
+  margin: 0.2rem;
+  outline: 1px solid;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* aspect-ratio: 1/1.1;s */
+  transition: all 250ms ease-in-out;
+  border-radius: 7px;
 }
 
+.elementContainer:hover {
+  transform: scale(1.1);
+}
 .elSymbol {
-  font-size: 30px;
+  font-size: 1.25rem;
 }
 
 .elAtomicNum {
+  font-size: 0.75rem;
+}
 
+@media screen and (max-width: 720px){
+
+  .elementContainer {
+    aspect-ratio: auto;
+  }
+  .elSymbol {
+    font-size: 0.75rem;
+  } 
+
+  .elAtomicNum {
+    font-size: 0.5rem;
+  }
+  
 }
